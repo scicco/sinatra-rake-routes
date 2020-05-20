@@ -20,7 +20,7 @@ class SinatraRakeRoutes
     str = []
     self.class.app_class.routes.each do |http_method, routes|
       str << http_method
-      routes = routes.map { |route| decompile(*route) }
+      routes = routes.map { |route| decompile(*route).to_s }
       str << routes.sort.join("\n") + "\n"
     end
     str.join("\n")
